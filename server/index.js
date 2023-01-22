@@ -11,9 +11,10 @@ const bcrypt = require('bcryptjs')
 const path = require('path')
 app.use(cors())
 app.use(express.json())
-
-mongoose.connect('mongodb+srv://aryan10581:dc_ar_5789@cluster0.dj5bykn.mongodb.net/test')
-
+require('dotenv').config();
+const urie=process.env.MONGO_URI
+mongoose.connect(urie)
+const PORT=process.env.PORT
 app.post('/api/register', async (req, res) => {
     console.log(req.body)
     try {
@@ -111,6 +112,6 @@ app.put('/api/quote', async (req, res) => {
     }
 })
 
-app.listen(1337, () => {
+app.listen(PORT, () => {
     console.log('Server started on 1337')
 })
