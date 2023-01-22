@@ -1,4 +1,5 @@
 import { useState } from 'react'
+// require('dotenv').config();
 
 function App() {
 	const [email, setEmail] = useState('')
@@ -6,8 +7,8 @@ function App() {
 
 	async function loginUser(event) {
 		event.preventDefault()
-console.log('Login :>> ');
-		const response = await fetch('http://localhost:1337/api/login', {
+		console.log('Login :>> ');
+		const response = await fetch(`https://mern-app-v32u.onrender.com/api/login`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

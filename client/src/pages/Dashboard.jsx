@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import jwt_decode from "jwt-decode";
 const Dashboard = () => {
+	require('dotenv').config();
+
 	const [inpTitle, setinpTitle] = useState('')
 	const [inpNote, setinpNote] = useState('')
 	const [data, setdata] = useState('')
@@ -11,7 +13,7 @@ const Dashboard = () => {
 	const navigate = useNavigate();
 	const [delID, setdelID] = useState('')
 	async function getNote() {
-		const req = await fetch(`http://localhost:1337/api/quote`, {
+		const req = await fetch(`https://mern-app-v32u.onrender.com/api/quote`, {
 			headers: {
 				'x-access-token': localStorage.getItem('token'),
 			},
@@ -55,7 +57,7 @@ const Dashboard = () => {
 
 	async function newNOte(event) {
 		event.preventDefault()
-		const req = await fetch(`http://localhost:1337/api/quote`, {
+		const req = await fetch(`https://mern-app-v32u.onrender.com/api/quote`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -76,7 +78,7 @@ const Dashboard = () => {
 		}
 	}
 	async function delNote(event) {
-		const req = await fetch(`http://localhost:1337/api/quote`, {
+		const req = await fetch(`https://mern-app-v32u.onrender.com/api/quote`, {
 			method: 'PUT',
 			headers: {
 				'Content-Type': 'application/json',
