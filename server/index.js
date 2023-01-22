@@ -113,6 +113,6 @@ app.put('/api/quote', async (req, res) => {
     }
 })
 
-app.listen('https://mern-app-v32u.onrender.com', () => {
+app.listen(10000, () => {
     console.log('Server started on 1337')
 })
