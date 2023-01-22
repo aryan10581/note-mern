@@ -12,8 +12,9 @@ const path = require('path')
 app.use(cors())
 app.use(express.json())
 require('dotenv').config();
-const urie=process.env.MONGO_URI
-mongoose.connect(urie)
+const USERNAME=process.env.MONGO_USERNAME
+const PASS=process.env.MONGO_PASS
+mongoose.connect(`mongodb+srv://aryan10581:dc_ar_5789@cluster0.dj5bykn.mongodb.net/test`)
 const PORT=process.env.PORT
 app.post('/api/register', async (req, res) => {
     console.log(req.body)
